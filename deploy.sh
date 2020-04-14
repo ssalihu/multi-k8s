@@ -8,7 +8,7 @@ docker push 1after/multi-client:$SHA
 docker push 1after/multi-server:$SHA
 docker push 1after/multi-worker:$SHA
 
-kubectl push -f k8s
+kubectl apply -f k8s
 kubectl set image deployments/server-deployment server=1after/multi-server:$SHA
 kubectl set image deployments/client-deployment client=1after/multi-client:$SHA
 kubectl set image deployments/worker-deployment worker=1after/multi-worker:$SHA
